@@ -1,4 +1,4 @@
-# [Generator-WPGTX](https://travis-ci.org/guilhermemarconi/generator-wpgtx)
+# generator-wpgtx
 
 > [Yeoman](http://yeoman.io) Generator
 
