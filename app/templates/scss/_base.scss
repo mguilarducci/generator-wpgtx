@@ -1,0 +1,170 @@
+@import "compass";
+@import "normalize";
+@import "bootstrap";
+
+
+// Variaveis
+/* Cores */
+$color-base: #000;
+
+/* fontes */
+
+
+/* Padrão do COMPASS */
+$default-transition-function: ease;
+
+
+// Placeholders
+%form_input {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    color: #555;
+    font-size: 16px;
+    @include box-sizing(border-box);
+    @include transition-duration(300ms);
+
+    &:focus {
+        color: #000;
+    }
+}
+
+
+// Ajustes de Tipografia
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #555;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+}
+
+body,
+input,
+textarea,
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+
+// tags e classes genericas
+a {
+    text-decoration: none;
+    @include transition-duration(300ms);
+
+    &:hover {
+        color: $color-base;
+    }
+}
+
+*:focus {
+    outline: none !important;
+}
+
+.widget {
+    margin: 0 0 1.5em;
+
+    .titulo-widget {
+        font-size: 24px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            list-style: none;
+            @include box-sizing(border-box);
+        }
+    }
+
+    select {
+        max-width: 100%;
+    }
+}
+
+.btn {
+    @include inline-block;
+    padding: 13px 35px;
+    border: 0;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    @include border-radius(3px);
+    @include box-sizing(border-box);
+    @include transition-duration(300ms);
+}
+
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+}
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+}
+
+.wp-caption {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+
+    img[class*="wp-image-"] {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .wp-caption-text {
+        margin: 0.8075em 0;
+    }
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+/* Contact Form 7 */
+.wpcf7 {
+    p {
+        margin-top: 0;
+    }
+
+    .wpcf7-form-control-wrap {
+        display: block !important;
+    }
+
+    input {
+        &[type="text"],
+        &[type="email"] {
+            @extend %form_input;
+            height: 35px;
+        }
+
+        &[type="submit"] {
+            @extend .btn;
+        }
+    }
+
+    textarea {
+        @extend %form_input;
+        padding: 10px;
+        resize: none;
+    }
+}
+/* Contact Form 7 */

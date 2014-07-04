@@ -1,0 +1,35 @@
+{
+  "name": "generator-wpgtx",
+  "version": "0.0.1",
+  "description": "Gerador de temas WordPress da Agência GTX",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "guilhermemarconi/generator-wpgtx",
+  "author": {
+    "name": "Guilherme Marconi",
+    "email": "guiilhermemarconi@gmail.com",
+    "url": "https://github.com/guilhermemarconi"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "gtx"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
