@@ -55,8 +55,6 @@ $ [sudo] yo wpgtx
 
 Ao iniciar a instalação, você será solicitado a inserir o nome do projeto.
 
-> Lembrando que você deve inserir o nome entre `""` caso o nome possua mais de uma palavra.
-
 Após isto, o Generator irá criar o diretório com o nome do projeto selecionado e adicionar os arquivos necessários, como abaixo.
 
 ```
