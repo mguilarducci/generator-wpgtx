@@ -1,4 +1,4 @@
-# generator-wpgtx
+# [generator-wpgtx](https://www.npmjs.org/package/generator-wpgtx)
 
 > [Yeoman](http://yeoman.io) Generator
 
@@ -33,7 +33,7 @@ Além do Yeoman, serão instalados o [Bower](http://bower.io/) e o [Grunt](http:
 
 ### Instalando o Generator
 
-O `generator-wpgtx` é uma "extensão" para o Yeoman que irá acessar o repositório e baixar os arquivos.
+O `generator-wpgtx` é uma extensão para o Yeoman que irá acessar o repositório e baixar os arquivos.
 
 Para instalar o `generator-wpgtx`, rode o comando:
 
@@ -43,7 +43,7 @@ $ [sudo] npm install -g generator-wpgtx
 
 Agora o Yeoman e o nosso Generator estão instalados e prontos para usar!
 
-### Pondo tudo em ordem
+## Colocando tudo em ordem
 
 Faça a instalação local da [versão mais recente do WordPress](http://br.wordpress.org/latest-pt_BR.zip) no local desejado.
 
@@ -100,13 +100,13 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 └── tile.png
 ```
 
-### Configurando o Grunt
+## Configurando o Grunt
 
 O tema gerado já virá com o `Gruntfile.js` quase totalmente configurado, restando apenas configurar informações de `ftp` para `deploy` e instalar as dependências necessárias para que tudo funcione corretamente.
 
 Para isto, utilizando o `Terminal/Git Bash/Windows PowerShell`, vá até o diretório do tema e insira os seguintes códigos:
 
-#### Para instalar o `Grunt`
+### Para instalar o `Grunt`
 
 ```bash
 $ [sudo] npm install grunt --save-dev
@@ -122,7 +122,7 @@ $ grunt
 
 Isto irá iniciar o `Grunt` e, automaticamente, a task `watch` será executada. Saiba mais sobre o `watch` [mais abaixo](#para-instalar-o-watch).
 
-#### Para instalar o `Matchdep`
+### Para instalar o `Matchdep`
 
 ```bash
 $ [sudo] npm install matchdep --save-dev
@@ -130,7 +130,7 @@ $ [sudo] npm install matchdep --save-dev
 
 O `Matchdep` serve para que você não precise alterar o `Gruntfile.js` cada vez que instalar uma nova dependência.
 
-#### Para instalar o `Watch`
+### Para instalar o `Watch`
 
 ```bash
 $ [sudo] npm install grunt-contrib-watch --save-dev
@@ -138,7 +138,7 @@ $ [sudo] npm install grunt-contrib-watch --save-dev
 
 O `Watch` irá verificar quaisquer alterações nos arquivos e executar a `task` específica para cada um, além de acionar o [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei), caso você possua a extensão instalada.
 
-#### Para instalar o `Compass`
+### Para instalar o `Compass`
 
 ```bash
 $ [sudo] npm install grunt-contrib-compass --save-dev
@@ -146,7 +146,7 @@ $ [sudo] npm install grunt-contrib-compass --save-dev
 
 A task `Compass` irá compilar seus arquivos `.scss`, gerando apenas um arquivo `CSS` otimizado.
 
-#### Para instalar o `Uglify`
+### Para instalar o `Uglify`
 
 ```bash
 $ [sudo] npm install grunt-contrib-uglify --save-dev
@@ -154,7 +154,7 @@ $ [sudo] npm install grunt-contrib-uglify --save-dev
 
 O `Uglify` irá comprimir seu `JavaScript`, gerando um arquivo de tamanho menor.
 
-#### Para instalar o `ImageMin`
+### Para instalar o `ImageMin`
 
 ```bash
 $ [sudo] npm install grunt-contrib-imagemin --save-dev
@@ -164,7 +164,7 @@ O `ImageMin` irá otimizar suas imagens em `JPG` e `PNG`, excluindo dados inúte
 
 _Esta tarefa já está pré-configurada para ser executanda antes de cada_  `deploy`_, juntamente com o_ `FTPush`_. Saiba sobre o_ `FTPush` _[abaixo](#para-instalar-o-ftpush)._
 
-#### Para instalar o `FTPush`
+### Para instalar o `FTPush`
 
 ```bash
 $ [sudo] npm install grunt-ftpush --save-dev
