@@ -11,7 +11,7 @@ O Ruby já vem instalado nativo no Mac OS e Linux. Mas, no Windows, precisamos i
 
 Com o Ruby instalado, você precisa instalar o `Compass`. O `Compass` é um framework baseado em [`SASS`](http://sass-lang.com/) que irá concatenar e comprimir seu `CSS`, além de oferecer inúmeras possibilidades, como trabalhar com variáveis, funções, contadores e tomadas de decisão.
 
-Para instalar o `Compass`, abra o execute o comando:
+Para instalar o `Compass`, execute o comando:
 
 ```bash
 $ [sudo] gem install compass
@@ -28,6 +28,8 @@ Agora, é hora de instalar o [Yeoman](http://yeoman.io/). Para isso, digite o co
 ```bash
 $ [sudo] npm install -g yo
 ```
+
+Além do Yeoman, serão instalados o [Bower](http://bower.io/) e o [Grunt](http://gruntjs.com/).
 
 ### Instalando o Generator
 
