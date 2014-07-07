@@ -1,6 +1,6 @@
 {
   "name": "generator-wpgtx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gerador de temas WordPress da Agência GTX",
   "license": "MIT",
   "main": "app/index.js",
@@ -8,7 +8,7 @@
   "author": {
     "name": "Guilherme Marconi",
     "email": "guiilhermemarconi@gmail.com",
-    "url": "https://github.com/guilhermemarconi"
+    "url": "https://github.com/guilhermemarconi/"
   },
   "engines": {
     "node": ">=0.10.0"
