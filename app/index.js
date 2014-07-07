@@ -32,6 +32,8 @@ var TesteGenerator = yeoman.generators.Base.extend({
   projectfiles: function () {
     var dir = this._.slugify(this.appName);
 
+    this.directory(dir+'/img');
+    this.directory(dir+'/inc');
     this.copy('js/scripts.js', dir+'/js/scripts.js');
     this.copy('js/min/scripts.min.js', dir+'/js/min/scripts.min.js');
     this.copy('js/vendor/jquery.min.js', dir+'/js/vendor/jquery.min.js');
