@@ -1,6 +1,6 @@
 {
   "name": "generator-wpgtx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gerador de temas WordPress da Agência GTX",
   "license": "MIT",
   "main": "app/index.js",
