@@ -61,43 +61,43 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 
 ```
 .
-|- _js
-|- |- _min
-|- |- |- scripts.min.js
-|- |- _vendor
-|- |- |- jquery.min.js
-|- |- |- modernizr.min.js
-|- |- scripts.js
-|- _scss
-|- |- _base.scss
-|- |- _bootstrap.scss
-|- |- _normalize.scss
-|- |- style.scss
-|- .editorconfig
-|- .ftppass
-|- .gitignore
-|- 404.php
-|- apple-touch-icon-precomposed.png
-|- archive.php
-|- browserconfig.xlm
-|- category.php
-|- config.rb
-|- favicon.ico
-|- footer.php
-|- functions.php
-|- Gruntfile.js
-|- header.php
-|- index.php
-|- package.json
-|- page.php
-|- screenshot.png
-|- search.php
-|- searchform.php
-|- single.php
-|- style.css
-|- tag.php
-|- tile-wide.png
-|- tile.png
+├── js
+│   ├── min
+│   │   └── scripts.min.js
+│   ├── vendor
+│   │   ├── jquery.min.js
+│   │   └── modernizr.min.js
+│   └── scripts.js
+├── scss
+│   ├── _base.scss
+│   ├── _bootstrap.scss
+│   ├── _normalize.scss
+│   └── style.scss
+├── .editorconfig
+├── .ftppass
+├── .gitignore
+├── 404.php
+├── apple-touch-icon-precomposed.png
+├── archive.php
+├── browserconfig.xlm
+├── category.php
+├── config.rb
+├── favicon.ico
+├── footer.php
+├── functions.php
+├── Gruntfile.js
+├── header.php
+├── index.php
+├── package.json
+├── page.php
+├── screenshot.png
+├── search.php
+├── searchform.php
+├── single.php
+├── style.css
+├── tag.php
+├── tile-wide.png
+└── tile.png
 ```
 
 ### Configurando o Grunt
