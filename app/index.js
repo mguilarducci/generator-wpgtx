@@ -39,7 +39,6 @@ var TesteGenerator = yeoman.generators.Base.extend({
     this.copy('scss/_base.scss', dir+'/scss/_base.scss');
     this.copy('scss/_bootstrap.scss', dir+'/scss/_bootstrap.scss');
     this.copy('scss/_normalize.scss', dir+'/scss/_normalize.scss');
-    this.copy('scss/style.scss', dir+'/scss/style.scss');
     this.copy('404.php', dir+'/404.php');
     this.copy('apple-touch-icon-precomposed.png', dir+'/apple-touch-icon-precomposed.png');
     this.copy('archive.php', dir+'/archive.php');
@@ -70,6 +69,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
 
     this.template('_gruntfile.js', dir+'/Gruntfile.js', context);
     this.template('_package.json', dir+'/package.json', context);
+    this.template('_style.scss', dir+'/scss/style.scss', context);
   }
 });
 
