@@ -112,9 +112,9 @@ Para isto, utilizando o `Terminal/Git Bash/Windows PowerShell`, vá até o diret
 $ [sudo] npm install grunt --save-dev
 ```
 
-Através do `Grunt` você irá gerenciar automatizar todas as tarefas pré-configuradas no `Gruntfile.js`.
+Através do `Grunt` você irá gerenciar e automatizar todas as tarefas pré-configuradas no `Gruntfile.js`.
 
-Para iniciar o grunt, basta inserir:
+Para iniciar o grunt, basta rodar o comando:
 
 ```bash
 $ grunt
@@ -125,10 +125,10 @@ Isto irá iniciar o `Grunt` e, automaticamente, a task `watch` será executada. 
 #### Para instalar o `Matchdep`
 
 ```bash
-$ [sudo] npm install grunt --save-dev
+$ [sudo] npm install matchdep --save-dev
 ```
 
-O `Matchdep` serve para que você não precise alterar o `Gruntfile.js` após instalar cada nova dependência.
+O `Matchdep` serve para que você não precise alterar o `Gruntfile.js` cada vez que instalar uma nova dependência.
 
 #### Para instalar o `Watch`
 
@@ -136,7 +136,7 @@ O `Matchdep` serve para que você não precise alterar o `Gruntfile.js` após in
 $ [sudo] npm install grunt-contrib-watch --save-dev
 ```
 
-O `Watch` irá verificar quaisquer alterações nos arquivos e executar a `task` específica para cada um.
+O `Watch` irá verificar quaisquer alterações nos arquivos e executar a `task` específica para cada um, além de acionar o [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei), caso você possua a extensão instalada.
 
 #### Para instalar o `Compass`
 
