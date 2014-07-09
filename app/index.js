@@ -30,8 +30,8 @@ var TesteGenerator = yeoman.generators.Base.extend({
   },
 
   projectfiles: function () {
-    var dir = this._.slugify(this.appName);
     var index;
+    var dir = this._.slugify(this.appName);
     var arquivos = [
       'inc/loop-single.php',
       'inc/loop.php',
@@ -61,7 +61,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
     ];
 
     for (index = 0; index < arquivos.length; ++index) {
-      this.copy(arquivo[index], dir + '/' + arquivo[index]);
+      this.copy(arquivos[index], dir + '/' + arquivos[index]);
     }
 
     this.copy('ftppass', dir + '/.ftppass');
