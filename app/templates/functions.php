@@ -17,7 +17,7 @@ add_theme_support( 'html5', array(
 function my_scripts_method() {
     // jquery
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri() . '/js/min/jquery.min.js' );
+    wp_register_script( 'jquery', get_template_directory_uri() . '/js/vendor/jquery.min.js' );
     wp_enqueue_script( 'jquery' );
 
     // outros scripts
