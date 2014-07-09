@@ -27,7 +27,6 @@ var TesteGenerator = yeoman.generators.Base.extend({
     var dir = this._.slugify(this.appName);
 
     this.mkdir(dir);
-    this.resolve(dir).mkdir('img');
   },
 
   projectfiles: function () {
