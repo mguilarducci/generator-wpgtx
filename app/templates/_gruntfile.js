@@ -30,8 +30,10 @@ module.exports = function( grunt ) {
             dist: {
                 options: {
                     force: true,
-                    config: "config.rb",
-                    outputStyle: "compressed"
+                    outputStyle: "compressed",
+                    // comentando esta linha, o CSS compilado não será comprimido.
+                    // útil para debug durante o desenvolvimento
+                    config: "config.rb"
                 }
             }
         },
@@ -98,7 +100,6 @@ module.exports = function( grunt ) {
                     "config.rb",
                     "node_modules",
                     ".ftppass",
-                    ".editorconfig",
                     ".jshintrc",
                     ".gitignore",
                     ".git",
