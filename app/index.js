@@ -6,7 +6,7 @@ var chalk = require('chalk');
 
 
 var TesteGenerator = yeoman.generators.Base.extend({
-  promptUser: function() {
+  promptUser: function () {
     var done = this.async();
 
     console.log(this.yeoman);
@@ -27,44 +27,53 @@ var TesteGenerator = yeoman.generators.Base.extend({
     var dir = this._.slugify(this.appName);
 
     this.mkdir(dir);
+    this.resolve(dir).mkdir('img');
   },
 
   projectfiles: function () {
     var dir = this._.slugify(this.appName);
+    var arquivos = [
+      'inc/loop-single.php',
+      'inc/loop.php',
+      'js/scripts.js',
+      'js/min/scripts.min.js',
+      'js/vendor/jquery.min.js',
+      'js/vendor/modernizr.min.js',
+      'scss/_base.scss',
+      'scss/_bootstrap.scss',
+      'scss/_normalize.scss',
+      '404.php',
+      'archive.php',
+      'category.php',
+      'config.rb',
+      'footer.php',
+      'functions.php',
+      'header.php',
+      'index.php',
+      'page.php',
+      'screenshot.png',
+      'search.php',
+      'searchform.php',
+      'sidebar.php',
+      'single.php',
+      'style.css',
+      'tag.php'
+    ];
 
-    this.copy('js/scripts.js', dir+'/js/scripts.js');
-    this.copy('js/min/scripts.min.js', dir+'/js/min/scripts.min.js');
-    this.copy('js/vendor/jquery.min.js', dir+'/js/vendor/jquery.min.js');
-    this.copy('js/vendor/modernizr.min.js', dir+'/js/vendor/modernizr.min.js');
-    this.copy('scss/_base.scss', dir+'/scss/_base.scss');
-    this.copy('scss/_bootstrap.scss', dir+'/scss/_bootstrap.scss');
-    this.copy('scss/_normalize.scss', dir+'/scss/_normalize.scss');
-    this.copy('404.php', dir+'/404.php');
-    this.copy('archive.php', dir+'/archive.php');
-    this.copy('category.php', dir+'/category.php');
-    this.copy('config.rb', dir+'/config.rb');
-    this.copy('footer.php', dir+'/footer.php');
-    this.copy('ftppass', dir+'/.ftppass');
-    this.copy('functions.php', dir+'/functions.php');
-    this.copy('gitignore', dir+'/.gitignore');
-    this.copy('header.php', dir+'/header.php');
-    this.copy('index.php', dir+'/index.php');
-    this.copy('page.php', dir+'/page.php');
-    this.copy('screenshot.png', dir+'/screenshot.png');
-    this.copy('search.php', dir+'/search.php');
-    this.copy('searchform.php', dir+'/searchform.php');
-    this.copy('sidebar.php', dir+'/sidebar.php');
-    this.copy('single.php', dir+'/single.php');
-    this.copy('style.css', dir+'/style.css');
-    this.copy('tag.php', dir+'/tag.php');
+    arquivos.forEach(function (arquivo) {
+      this.copy(arquivo, dir + '/' + arquivo);
+    });
+
+    this.copy('ftppass', dir + '/.ftppass');
+    this.copy('gitignore', dir + '/.gitignore');
 
     var context = {
       theme_name: this.appName
     };
 
-    this.template('_gruntfile.js', dir+'/Gruntfile.js', context);
-    this.template('_package.json', dir+'/package.json', context);
-    this.template('_style.scss', dir+'/scss/style.scss', context);
+    this.template('_gruntfile.js', dir + '/Gruntfile.js', context);
+    this.template('_package.json', dir + '/package.json', context);
+    this.template('_style.scss', dir + '/scss/style.scss', context);
   }
 });
 
