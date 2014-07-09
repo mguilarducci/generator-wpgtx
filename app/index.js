@@ -40,13 +40,9 @@ var TesteGenerator = yeoman.generators.Base.extend({
     this.copy('scss/_bootstrap.scss', dir+'/scss/_bootstrap.scss');
     this.copy('scss/_normalize.scss', dir+'/scss/_normalize.scss');
     this.copy('404.php', dir+'/404.php');
-    this.copy('apple-touch-icon-precomposed.png', dir+'/apple-touch-icon-precomposed.png');
     this.copy('archive.php', dir+'/archive.php');
-    this.copy('browserconfig.xml', dir+'/browserconfig.xml');
     this.copy('category.php', dir+'/category.php');
     this.copy('config.rb', dir+'/config.rb');
-    this.copy('editorconfig', dir+'/.editorconfig');
-    this.copy('favicon.ico', dir+'/favicon.ico');
     this.copy('footer.php', dir+'/footer.php');
     this.copy('ftppass', dir+'/.ftppass');
     this.copy('functions.php', dir+'/functions.php');
@@ -57,11 +53,10 @@ var TesteGenerator = yeoman.generators.Base.extend({
     this.copy('screenshot.png', dir+'/screenshot.png');
     this.copy('search.php', dir+'/search.php');
     this.copy('searchform.php', dir+'/searchform.php');
+    this.copy('sidebar.php', dir+'/sidebar.php');
     this.copy('single.php', dir+'/single.php');
     this.copy('style.css', dir+'/style.css');
     this.copy('tag.php', dir+'/tag.php');
-    this.copy('tile-wide.png', dir+'/tile-wide.png');
-    this.copy('tile.png', dir+'/tile.png');
 
     var context = {
       theme_name: this.appName
