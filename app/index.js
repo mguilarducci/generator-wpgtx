@@ -59,9 +59,9 @@ var TesteGenerator = yeoman.generators.Base.extend({
       'tag.php'
     ];
 
-    arquivos.forEach(function (arquivo) {
-      this.copy(arquivo, dir + '/' + arquivo);
-    });
+    for (index = 0; index < arquivos.length; ++index) {
+      this.copy(arquivo[index], dir + '/' + arquivo[index]);
+    }
 
     this.copy('ftppass', dir + '/.ftppass');
     this.copy('gitignore', dir + '/.gitignore');
