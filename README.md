@@ -73,7 +73,6 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 │   ├── _bootstrap.scss
 │   ├── _normalize.scss
 │   └── style.scss
-├── .editorconfig
 ├── .ftppass
 ├── .gitignore
 ├── 404.php
