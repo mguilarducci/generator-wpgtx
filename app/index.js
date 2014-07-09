@@ -31,6 +31,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
 
   projectfiles: function () {
     var dir = this._.slugify(this.appName);
+    var index;
     var arquivos = [
       'inc/loop-single.php',
       'inc/loop.php',
