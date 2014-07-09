@@ -61,7 +61,6 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 
 ```
 .
-├── img/
 ├── inc/
 │   ├── loop-single.php
 │   └── loop.php
