@@ -160,7 +160,7 @@ _Esta tarefa já está pré-configurada para ser executanda antes de cada_  `dep
 $ [sudo] npm install grunt-ftpush --save-dev
 ```
 
-O `FTPush` irá fazer o `deploy` do tema, ou seja, subir os arquivos para o ar. Para utilizá-la, primeiramente use o comando `CTRL+C`, do teclado, caso você esteja com a task `watch` sendo executada, para que o processo seja parado. Agora, insira o comando:
+O `FTPush` irá fazer o `deploy` do tema, ou seja, subir os arquivos para o ar. Para utilizá-lo, primeiramente use o comando `CTRL+C`, do teclado, caso você esteja com a task `watch` sendo executada, para que o processo seja parado. Então, insira o comando:
 
 ```bash
 $ grunt deploy
