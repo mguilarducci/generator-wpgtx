@@ -29,6 +29,20 @@ function my_scripts_method() {
         false
     );
     wp_enqueue_script(
+        'fitvids',
+        get_template_directory_uri() . '/js/vendor/fitvids.min.js',
+        'jquery',
+        null,
+        true
+    );
+    wp_enqueue_script(
+        'flexslider',
+        get_template_directory_uri() . '/js/vendor/flexslider.min.js',
+        'jquery',
+        '2.1',
+        true
+    );
+    wp_enqueue_script(
         'scripts',
         get_template_directory_uri() . '/js/min/scripts.min.js',
         'jquery',
@@ -57,6 +71,7 @@ add_theme_support( 'post-thumbnails' );
 
 add_image_size( 'post_float', 300, 9999 );
 add_image_size( 'post_wide', 620, 9999 );
+add_image_size( 'gal_wide', 720, 540, true );
 
 function custom_image_sizes_choose( $sizes ) {
     $custom_sizes = array(
@@ -99,7 +114,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 #### RESUMO DOS POSTS ####
 
 #### FORMATO(S) DE POSTS ####
-// add_theme_support( 'post-formats', array( 'video', 'gallery' ) );
+add_theme_support( 'post-formats', array( 'gallery' ) );
 #### FORMATO(S) DE POSTS ####
 
 #### PEGA O TIPO DE POST ####
@@ -161,3 +176,65 @@ function paginacao() {
     }
 }
 #### PAGINAÇÃO ####
+
+#### GALERIA ####
+function gtx_gallery_images() {
+    $output = $images_ids = '';
+
+    if ( function_exists( 'get_post_galleries' ) ) {
+        $galleries = get_post_galleries( get_the_ID(), false );
+
+        if ( empty( $galleries ) ) return false;
+
+        if ( isset( $galleries[0]['ids'] ) ) {
+            foreach ( $galleries as $gallery ) {
+                $images_ids .= ( '' !== $images_ids ? ',' : '' ) . $gallery['ids'];
+            }
+
+            $attachments_ids = explode( ',', $images_ids );
+            $attachments_ids = array_unique( $attachments_ids );
+        } else {
+            $attachments_ids = get_posts( array(
+                'fields'         => 'ids',
+                'numberposts'    => 999,
+                'order'          => 'ASC',
+                'orderby'        => 'menu_order',
+                'post_mime_type' => 'image',
+                'post_parent'    => get_the_ID(),
+                'post_type'      => 'attachment',
+            ) );
+        }
+    } else {
+        $pattern = get_shortcode_regex();
+        preg_match( "/$pattern/s", get_the_content(), $match );
+        $atts = shortcode_parse_atts( $match[3] );
+
+        if ( isset( $atts['ids'] ) )
+            $attachments_ids = explode( ',', $atts['ids'] );
+        else
+            return false;
+    }
+
+    echo '<div class="gallery-slider flexslider">';
+    echo '  <ul class="gallery-slides">';
+    if ( !is_single() ) {
+        foreach ( $attachments_ids as $attachment_id ) {
+            printf(
+                '<li class="gallery-slide"><a href="%s">%s</a></li>',
+                esc_url( get_permalink() ),
+                wp_get_attachment_image( $attachment_id, 'gal_wide' )
+            );
+        }
+    } else {
+        foreach ( $attachments_ids as $attachment_id ) {
+            printf(
+                '<li class="gallery-slide">' . wp_get_attachment_image( $attachment_id, 'gal_wide' ) . '</li>'
+            );
+        }
+    }
+    echo '  </ul>';
+    echo '</div>';
+
+    return $output;
+}
+#### GALERIA ####
