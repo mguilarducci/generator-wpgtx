@@ -31,7 +31,7 @@ module.exports = function( grunt ) {
                 options: {
                     force: true,
                     outputStyle: "compressed",
-                    // comentando esta linha, o CSS compilado não será comprimido.
+                    // comentando a linha acima, o CSS compilado não será comprimido.
                     // útil para debug durante o desenvolvimento
                     config: "config.rb"
                 }
