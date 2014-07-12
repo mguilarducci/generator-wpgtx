@@ -4,6 +4,10 @@
     <div class="row">
         <div class="col-xs-12 col-sm-8">
             <?php get_template_part( 'inc/loop' ); ?>
+
+            <div class="pagination">
+                <?php pagination(); ?>
+            </div>
         </div>
 
         <?php get_sidebar( 'blog' ); ?>
