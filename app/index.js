@@ -31,19 +31,25 @@ var TesteGenerator = yeoman.generators.Base.extend({
 
   projectfiles: function () {
     var index;
-    var dir = this._.slugify(this.appName);
+    var name = this.appName;
+    var dir = this._.slugify(name);
     var arquivos = [
+      'img/sprite.png',
       'inc/loop-single.php',
       'inc/loop.php',
       'js/scripts.js',
       'js/min/scripts.min.js',
+      'js/vendor/fitvids.min.js',
+      'js/vendor/flexslider.min.js',
       'js/vendor/jquery.min.js',
       'js/vendor/modernizr.min.js',
       'scss/_base.scss',
       'scss/_bootstrap.scss',
+      'scss/_flexslider.scss',
       'scss/_normalize.scss',
       '404.php',
       'archive.php',
+      'author.php',
       'category.php',
       'config.rb',
       'footer.php',
@@ -68,7 +74,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
     this.copy('gitignore', dir + '/.gitignore');
 
     var context = {
-      theme_name: this.appName
+      theme_name: name
     };
 
     this.template('_gruntfile.js', dir + '/Gruntfile.js', context);
