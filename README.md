@@ -9,7 +9,7 @@ Antes de qualquer coisa, precisamos ter instalados o [Node.js](http://nodejs.org
 
 O Ruby já vem instalado nativo no Mac OS e Linux. Mas, no Windows, precisamos instalá-lo. Para isto, utilize [este instalador](http://rubyinstaller.org/downloads/).
 
-Com o Ruby instalado, você precisa instalar o `Compass`. O `Compass` é um framework baseado em [`SASS`](http://sass-lang.com/) que irá concatenar e comprimir seu `CSS`, além de oferecer inúmeras possibilidades, como trabalhar com variáveis, funções, contadores e tomadas de decisão.
+Com o Ruby instalado, você precisa instalar o `Compass`. O `Compass` é um framework baseado em [`Sass`](http://sass-lang.com/) que irá concatenar e comprimir seu `CSS`, além de oferecer inúmeros recursos, como trabalhar com variáveis, funções, contadores e tomadas de decisão.
 
 Para instalar o `Compass`, execute o comando:
 
@@ -19,7 +19,7 @@ $ [sudo] gem install compass
 
 _O_ `sudo` _(os_ `[]` _indicam que é "opcional") deve ser utilizado **apenas** se estiver num sistema operacional baseado em_ `UNIX` _(Mac OS e Linux) para que o comando seja executado como administrador._
 
-Desta forma você irá instalar tanto o `SASS` quanto o `Compass` em sua máquina.
+Desta forma você irá instalar tanto o `Sass` quanto o `Compass` em sua máquina.
 
 ***
 
@@ -43,9 +43,27 @@ $ [sudo] npm install -g generator-wpgtx
 
 Agora o Yeoman e o nosso Generator estão instalados e prontos para usar!
 
+***
+
+### Atualizando o Generator
+
+Estou sempre buscando atualizar o `generator-wpgtx`, seja otimizando o código, seja adicionando novas features.
+
+Para que ele esteja sempre atualizado, é necessário rodar o seguinte comando periodicamente:
+
+```bash
+$ [sudo] npm update -g generator-wpgtx
+```
+
+Assim, caso haja uma nova atualização, ela será baixada e você terá a versão mais recente.
+
+***
+
 ## Colocando tudo em ordem
 
 Faça a instalação local da [versão mais recente do WordPress](http://br.wordpress.org/latest-pt_BR.zip) no local desejado.
+
+> _Dica: eu utilizo o [Nettuts+ Fetch](https://github.com/weslly/Nettuts-Fetch) em meu [Sublime Text 3](http://sublimetext.com/3)._
 
 Após instalar o WordPress no diretório escolhido, vá até a pasta `wp-content/themes` de sua instalação, utilizando o `Terminal`, `Git Bash`, `Windows PowerShell`, ou outro de sua preferência.
 
@@ -57,10 +75,14 @@ $ [sudo] yo wpgtx
 
 Ao iniciar a instalação, você será solicitado a inserir o nome do projeto.
 
+![Inserindo o nome do projeto no generator-wpgtx](http://i.imgur.com/64i0UbG.jpg)
+
 Após isto, o Generator irá criar o diretório com o nome do projeto selecionado e adicionar os arquivos necessários, como abaixo.
 
 ```
 .
+├── img/
+│   └── sprite.png
 ├── inc/
 │   ├── loop-single.php
 │   └── loop.php
@@ -68,6 +90,8 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 │   ├── min/
 │   │   └── scripts.min.js
 │   ├── vendor/
+│   │   ├── fitvids.min.js
+│   │   ├── flexslider.min.js
 │   │   ├── jquery.min.js
 │   │   └── modernizr.min.js
 │   └── scripts.js
@@ -80,6 +104,7 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 ├── .gitignore
 ├── 404.php
 ├── archive.php
+├── author.php
 ├── category.php
 ├── config.rb
 ├── footer.php
@@ -152,7 +177,7 @@ $ [sudo] npm install grunt-contrib-imagemin --save-dev
 
 O `ImageMin` irá otimizar suas imagens em `JPG` e `PNG`, excluindo dados inúteis das mesmas, diminuindo seu tamanho final.
 
-_Esta tarefa já está pré-configurada para ser executanda antes de cada_  `deploy`_, juntamente com o_ `FTPush`_. Saiba sobre o_ `FTPush` _[abaixo](#para-instalar-o-ftpush)._
+_Esta tarefa já está pré-configurada para ser executada antes de cada_  `deploy`_, juntamente com o_ `FTPush`_. Saiba sobre o_ `FTPush` _abaixo._
 
 ### Para instalar o `FTPush`
 
