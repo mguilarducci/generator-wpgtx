@@ -20,9 +20,23 @@
 }());
 
 (function($) {
-    var $window = $(window);
+    var $window = $(window),
+        slideGaleria = $('.gallery-slider'),
+        galeriaWP = $('.gallery'),
+        post = $('.post');
 
     $(function() {
-        // code
+        // fitvids
+        post.fitVids();
+
+        // substitui a galeria se o formato de post for de galeria
+        if (slideGaleria.length) {
+            slideGaleria.flexslider({
+                slideshow  : false,
+                selector   : '.gallery-slides > li',
+                controlNav : false
+            });
+        }
+        galeriaWP.remove();
     });
 })(jQuery);
