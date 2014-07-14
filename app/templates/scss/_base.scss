@@ -140,6 +140,10 @@ a {
     text-align: center;
 }
 
+.wp-smiley {
+    @include inline-block;
+}
+
 /* Contact Form 7 */
 .wpcf7 {
     p {
