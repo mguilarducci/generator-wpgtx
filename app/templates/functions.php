@@ -125,6 +125,17 @@ function is_post_type( $type ) {
 }
 #### PEGA O TIPO DE POST ####
 
+#### REMOVE A OPÇÃO PADRÃO DE IMAGENS COM LINKS NO POST ####
+function imagelink_setup() {
+    $image_set = get_option( 'image_default_link_type' );
+
+    if ($image_set !== 'none') {
+        update_option('image_default_link_type', 'none');
+    }
+}
+add_action('admin_init', 'imagelink_setup', 10);
+#### REMOVE A OPÇÃO PADRÃO DE IMAGENS COM LINKS NO POST ####
+
 #### POSTS MAIS POPULARES ####
 function set_post_views( $postID ) {
     $count_key = 'post_views_count';
