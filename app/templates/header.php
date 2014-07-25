@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <h1 class="col-sm-4 logo-wrap">
-                    <a href="<?php echo home_url(); ?>">
+                    <a rel="bookmark" href="<?php echo home_url(); ?>">
                         Logo
                     </a>
                 </h1>
