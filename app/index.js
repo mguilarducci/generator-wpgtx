@@ -62,7 +62,6 @@ var TesteGenerator = yeoman.generators.Base.extend({
       'searchform.php',
       'sidebar.php',
       'single.php',
-      'style.css',
       'tag.php'
     ];
 
@@ -80,6 +79,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
     this.template('_gruntfile.js', dir + '/Gruntfile.js', context);
     this.template('_package.json', dir + '/package.json', context);
     this.template('_style.scss', dir + '/scss/style.scss', context);
+    this.template('_style.css', dir + '/style.css', context);
   }
 });
 
