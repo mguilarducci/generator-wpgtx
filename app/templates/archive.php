@@ -6,7 +6,7 @@
             <?php get_template_part( 'inc/loop' ); ?>
 
             <div class="pagination">
-                <?php pagination(); ?>
+                <?php paginacao(); ?>
             </div>
         </div>
 
