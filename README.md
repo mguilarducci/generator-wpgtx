@@ -3,81 +3,81 @@
 > [Yeoman](http://yeoman.io) Generator
 
 
-## Começando
+## Getting started
 
-Antes de qualquer coisa, precisamos ter instalados o [Node.js](http://nodejs.org/download/), o NPM (que é instalado junto ao Node.js) e o Ruby (para utilização do [`Compass`](http://compass-style.org/)).
+Before anithing, we need to have installed [Node.js](http://nodejs.org/download/), NPM (which is installed with Node.js) and Ruby (for the [`Compass`](http://compass-style.org/)).
 
-O Ruby já vem instalado nativo no Mac OS e Linux. Mas, no Windows, precisamos instalá-lo. Para isto, utilize [este instalador](http://rubyinstaller.org/downloads/).
+Ruby is already installed native on Mac OS and Linux. But in Windows, we need to install it. For this, use [this installer](http://rubyinstaller.org/downloads/).
 
-Com o Ruby instalado, você precisa instalar o `Compass`. O `Compass` é um framework baseado em [`Sass`](http://sass-lang.com/) que irá concatenar e comprimir seu `CSS`, além de oferecer inúmeros recursos, como trabalhar com variáveis, funções, contadores e tomadas de decisão.
+With Ruby installed, you need to install `Compass`. The `Compass` is a [`Sass-based`](http://sass-lang-com/) framework which will concatenate and compress your compilled `CSS`, in addition to providing numerous resources, working with variables, functions, counters and `if` statements.
 
-Para instalar o `Compass`, execute o comando:
+To install `Compass` run the command:
 
 ```bash
 $ [sudo] gem install compass
 ```
 
-_O_ `sudo` _(os_ `[]` _indicam que é "opcional") deve ser utilizado **apenas** se estiver num sistema operacional baseado em_ `UNIX` _(Mac OS e Linux) para que o comando seja executado como administrador._
+_The_ `sudo` _should be used **only** if you are in a UNIX-based operating system (like Mac OS and Linux) to run as administrator._
 
-Desta forma você irá instalar tanto o `Sass` quanto o `Compass` em sua máquina.
+This way you will install both as `Sass` and `Compass` on your machine.
 
 ***
 
-Agora, é hora de instalar o [Yeoman](http://yeoman.io/). Para isso, digite o comando abaixo:
+Now, it's time to [Yeoman](http://yeoman.io/). To do this, type de following command:
 
 ```bash
 $ [sudo] npm install -g yo
 ```
 
-Além do Yeoman, serão instalados o [Bower](http://bower.io/) e o [Grunt](http://gruntjs.com/).
+Besides Yeoman, will be installed [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/).
 
-### Instalando o Generator
+### Installing Generators
 
-O `generator-wpgtx` é uma extensão para o Yeoman que irá acessar o repositório e baixar os arquivos.
+The `generator-wpgtx` is an extension to the Yeoman who will access the repository and download the files.
 
-Para instalar o `generator-wpgtx`, rode o comando:
+To install the `generator-wpgtx`, run the command:
 
 ```bash
 $ [sudo] npm install -g generator-wpgtx
 ```
 
-Agora o Yeoman e o nosso Generator estão instalados e prontos para usar!
+Now Yeoman and our Generator are installed and ready to use!
 
 ***
 
-### Atualizando o Generator
+### Updating Generators
 
-Estou sempre buscando atualizar o `generator-wpgtx`, seja otimizando o código, seja adicionando novas features.
+I'm always looking to update the `generator-wpgtx`, optimizing the code or adding new features when I learn or find something new.
 
-Para que ele esteja sempre atualizado, é necessário rodar o seguinte comando periodicamente:
+For it to be always up to date, you must run periodically the following command:
 
 ```bash
 $ [sudo] npm update -g generator-wpgtx
 ```
 
-Assim, caso haja uma nova atualização, ela será baixada e você terá a versão mais recente.
+Thus, if there is a new update, it will be downloaded and you'll get the latest version.
 
 ***
 
-## Colocando tudo em ordem
+## Putting it all together
 
-Faça a instalação local da [versão mais recente do WordPress](http://br.wordpress.org/latest-pt_BR.zip) no local desejado.
+Make the local installation of the [latest version of WordPress](https://wordpress.org/latest.zip) in the desired location.
 
-> _Dica: eu utilizo o [Nettuts+ Fetch](https://github.com/weslly/Nettuts-Fetch) em meu [Sublime Text 3](http://sublimetext.com/3)._
+> _Tip: I use [Nettuts+ Fetch](https://github.com/weslly/Nettuts-Fetch) in my [Sublime Text 3](http://sublimetext.com/3)._
 
-Após instalar o WordPress no diretório escolhido, vá até a pasta `wp-content/themes` de sua instalação, utilizando o `Terminal`, `Git Bash`, `Windows PowerShell`, ou outro de sua preferência.
+After installing WordPress on your chosen directory, go to the `wp-content/themes` folder of your installation by using the `Terminal`, `Git Bash`, `Windows PowerShell`, or another of your choice.
 
-Então, inicie o Generator:
+Then, start the Generator:
 
 ```bash
 $ [sudo] yo wpgtx
 ```
 
-Ao iniciar a instalação, você será solicitado a inserir o nome do projeto.
+When starting the installation, you will be prompted to enter the project name.
 
-![Inserindo o nome do projeto no generator-wpgtx](http://i.imgur.com/64i0UbG.jpg)
+![Entering the project name on generator-wpgtx](http://i.imgur.com/64i0UbG.jpg)
 
-Após isto, o Generator irá criar o diretório com o nome do projeto selecionado e adicionar os arquivos necessários, como abaixo.
+After this, the generator will create a directory with the name of the selected project and add the necessary files, as below.
 
 ```
 .
@@ -123,92 +123,64 @@ Após isto, o Generator irá criar o diretório com o nome do projeto selecionad
 └── tag.php
 ```
 
-## Configurando o Grunt
+## Configuring Grunt
 
-O tema gerado já virá com o `Gruntfile.js` quase totalmente configurado, restando apenas configurar informações de `ftp` para `deploy` e instalar as dependências necessárias para que tudo funcione corretamente.
+The theme generated has come with `Gruntfile.js` almost fully configured, leaving only configure `FTP` information to `deploy` and install the necessary dependencies for everything to work properly.
 
-Para isto, vá até o diretório do tema e insira os seguintes comandos:
-
-### Para instalar o `Grunt`
+To do this, go to the theme directory and enter the following command:
 
 ```bash
-$ [sudo] npm install grunt --save-dev
+$ [sudo] npm install
 ```
 
-Através do `Grunt` você irá gerenciar e automatizar todas as tarefas pré-configuradas no `Gruntfile.js`.
+Through the above command, the following dependencies are installed:
 
-### Para instalar o `Matchdep`
+#### Grunt
 
-```bash
-$ [sudo] npm install matchdep --save-dev
-```
+Through the `Grunt` you will manage and automate every preconfigured tasks in `Gruntfile.js`.
 
-O `Matchdep` serve para que você não precise alterar o `Gruntfile.js` cada vez que instalar uma nova dependência.
+#### Matchdep
 
-### Para instalar o `Watch`
+With `Matchdep` you don't need to change the `Gruntfile.js` each time you install a new dependency.
 
-```bash
-$ [sudo] npm install grunt-contrib-watch --save-dev
-```
+#### Watch
 
-O `Watch` irá verificar quaisquer alterações nos arquivos e executar a `task` específica para cada um, além de acionar o [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei), caso você possua a extensão instalada.
+The `Watch` will check any changes in files and perform the specific task for each, as well as trigger the [Live Reload](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-), if you have the extension installed.
 
-### Para instalar o `Compass`
+#### Compass
 
-```bash
-$ [sudo] npm install grunt-contrib-compass --save-dev
-```
+The `Compass` task will compile your `.scss` files, generating only an optimized `CSS` file.
 
-A task `Compass` irá compilar seus arquivos `.scss`, gerando apenas um arquivo `CSS` otimizado.
+#### Uglify
 
-### Para instalar o `Uglify`
+The `Uglify` will compress your `JavaScript`, creating a smaller file.
 
-```bash
-$ [sudo] npm install grunt-contrib-uglify --save-dev
-```
+#### ImageMin
 
-O `Uglify` irá comprimir seu `JavaScript`, gerando um arquivo de tamanho menor.
+The `ImageMin` will optimize your images in `JPG` and `PNG`, deleting useless data the same, decreasing its final size.
 
-### Para instalar o `ImageMin`
+_This task is already preconfigured to run before each deployment along with the_ `FTPush` _task. You can cancel this changing the line 117 of the_ `Gruntfile.js`_._
 
-```bash
-$ [sudo] npm install grunt-contrib-imagemin --save-dev
-```
+#### FTPush
 
-O `ImageMin` irá otimizar suas imagens em `JPG` e `PNG`, excluindo dados inúteis das mesmas, diminuindo seu tamanho final.
+The `FTPush` will `deploy` your theme, ie, send the files to the server.
 
-_Esta tarefa já está pré-configurada para ser executada antes de cada_  `deploy`_, juntamente com o_ `FTPush`_. Saiba sobre o_ `FTPush` _abaixo._
+> Before the deployment it's necessary to insert the data from `FTP`. This information is entered into the `Gruntfile.js`, setting the host (line 87) and the destination directory within the server (line 92), and in the `.ftppass` file, setting the username and password.
 
-### Para instalar o `FTPush`
-
-```bash
-$ [sudo] npm install grunt-ftpush --save-dev
-```
-
-O `FTPush` irá fazer o `deploy` do tema, ou seja, subir os arquivos para o ar. Para utilizá-lo, primeiramente use o comando `CTRL+C`, do teclado, caso você esteja com a task `watch` sendo executada, para que o processo seja parado. Então, insira o comando:
-
-```bash
-$ grunt deploy
-```
-
-> Antes de dar o `deploy` é necessário inserir os dados de `ftp`. Estas informações são inseridas no `Gruntfile.js`, definindo o `host` (linha 87) e o diretório destino dentro do servidor (linha 92), e no `.ftppass`, definindo o usuário e senha.
-
-_Esta task irá subir apenas os arquivos **do tema** para o ar. A instalação do WordPress no domínio será feita da forma que achar melhor._
+_This task will send only the **theme files** to the server. The WordPress installation on your host will be the way you prefer._
 
 ***
 
-Agora, com tudo devidamente instalado e configurado, é hora de iniciar o `Grunt`:
+Now, with everything installed and configured, it's time to start `Grunt`:
 
 ```bash
 $ grunt
 ```
 
-Isto irá iniciar o `Grunt` e, automaticamente, a task `watch` será executada para fazer a compilação dos arquivos e, caso tenha o Live Reload instalado, recarregar a página.
+This will start the `Grunt` and automatically the `watch` task will be executed to make things happen.
 
-> Lembrando, mais uma vez, que todas estas dependências já estarão pré-configuradas no `Gruntfile.js`.
->
-> Para inserir mais dependências, é necessária configuração no mesmo.
+Enjoy!
 
-## Licença
+## License
 
 MIT
