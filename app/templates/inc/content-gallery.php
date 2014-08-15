@@ -1,0 +1,1 @@
+<?php gtx_custom_gallery(); ?>

@@ -1,59 +1,61 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Classic_Theme
  */
 
 add_theme_support( 'automatic-feed-links' );
-add_theme_support( 'html5', array(
-    'caption',
-    'comment-form',
-    'comment-list',
-    'gallery',
-    'search-form'
-) );
+add_theme_support( 'menus' );
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-formats', array( 'gallery' ) );
+add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'search-form' ) );
 
-#### REGISTRA OS SCRIPTS ####
+register_nav_menu( 'topo', 'Menu do topo' );
+register_nav_menu( 'footer', 'Menu do rodapé' );
+
+add_image_size( 'post_float', 300, 9999 );
+add_image_size( 'post_wide', 848, 9999 );
+add_image_size( 'gal_wide', 848, 9999 );
+
 function my_scripts_method() {
-    // jquery
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', get_template_directory_uri() . '/js/vendor/jquery.min.js' );
-    wp_enqueue_script( 'jquery' );
+    // CSS
+    wp_enqueue_style(
+        'teme-style',
+        get_stylesheet_uri(),
+        array(),
+        '0.1.0'
+    );
 
-    // outros scripts
+    // JS
     wp_enqueue_script(
         'modernizr',
         get_template_directory_uri() . '/js/vendor/modernizr.min.js',
-        null,
-        '2.6.2',
-        false
+        array(),
+        '2.6.2'
     );
     wp_enqueue_script(
         'fitvids',
         get_template_directory_uri() . '/js/vendor/fitvids.min.js',
-        'jquery',
-        null,
+        array( 'jquery' ),
+        '1.1.0',
         true
     );
     wp_enqueue_script(
         'flexslider',
         get_template_directory_uri() . '/js/vendor/flexslider.min.js',
-        'jquery',
-        '2.1',
+        array( 'jquery' ),
+        '2.1.0',
         true
     );
     wp_enqueue_script(
         'scripts',
         get_template_directory_uri() . '/js/min/scripts.min.js',
-        'jquery',
-        null,
+        array( 'jquery' ),
+        '0.1.0',
         true
     );
 }
 add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
-#### REGISTRA OS SCRIPTS ####
 
-#### SIDEBAR(S) ####
 if ( function_exists( 'register_sidebar' ) ) {
     register_sidebar( array(
         'name'          => 'Barra Lateral Blog',
@@ -64,14 +66,6 @@ if ( function_exists( 'register_sidebar' ) ) {
         'after_title'   => '</h5>'
     ));
 }
-#### SIDEBAR(S) ####
-
-#### IMAGEM DETAQUE DE POSTS ####
-add_theme_support( 'post-thumbnails' );
-
-add_image_size( 'post_float', 300, 9999 );
-add_image_size( 'post_wide', 620, 9999 );
-add_image_size( 'gal_wide', 720, 540, true );
 
 function custom_image_sizes_choose( $sizes ) {
     $custom_sizes = array(
@@ -81,10 +75,6 @@ function custom_image_sizes_choose( $sizes ) {
     return array_merge( $sizes, $custom_sizes );
 }
 add_filter( 'image_size_names_choose', 'custom_image_sizes_choose' );
-#### IMAGEM DETAQUE DE POSTS ####
-
-#### AJUSTA DIMENSÕES DOS VÍDEOS DO oEMBED ####
-add_filter( 'embed_defaults', 'new_embed_size' );
 
 function new_embed_size() {
     return array(
@@ -92,52 +82,35 @@ function new_embed_size() {
         'height' => 349
     );
 }
-#### AJUSTA DIMENSÕES DOS VÍDEOS DO oEMBED ####
+add_filter( 'embed_defaults', 'new_embed_size' );
 
-#### MENU ####
-add_theme_support( 'menus' );
-register_nav_menu( 'topo', __( 'Topo', 'Menu Topo' ) );
-register_nav_menu( 'footer', __( 'Rodapé', 'Menu Rodapé' ) );
-#### MENU ####
-
-#### RESUMO DOS POSTS ####
-function new_excerpt_more( $more ) {
+function gtx_custom_excerpt_more( $more ) {
     global $post;
     return '&hellip;<footer class="veja-mais-wrap"><a href="' . get_permalink($post->ID) . '">Veja mais &gt;</a></footer>';
 }
-add_filter( 'excerpt_more', 'new_excerpt_more' );
+add_filter( 'excerpt_more', 'gtx_custom_excerpt_more' );
 
-function custom_excerpt_length( $length ) {
+function gtx_custom_excerpt_length( $length ) {
     return 50;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-#### RESUMO DOS POSTS ####
+add_filter( 'excerpt_length', 'gtx_custom_excerpt_length', 999 );
 
-#### FORMATO(S) DE POSTS ####
-add_theme_support( 'post-formats', array( 'gallery' ) );
-#### FORMATO(S) DE POSTS ####
-
-#### PEGA O TIPO DE POST ####
 function is_post_type( $type ) {
     global $wp_query;
     if ( $type == get_post_type( $wp_query->post->ID ) ) return true;
     return false;
 }
-#### PEGA O TIPO DE POST ####
 
-#### REMOVE A OPÇÃO PADRÃO DE IMAGENS COM LINKS NO POST ####
-function imagelink_setup() {
+function gtx_custom_imagelink_setup() {
     $image_set = get_option( 'image_default_link_type' );
 
     if ($image_set !== 'none') {
         update_option('image_default_link_type', 'none');
     }
 }
-add_action('admin_init', 'imagelink_setup', 10);
-#### REMOVE A OPÇÃO PADRÃO DE IMAGENS COM LINKS NO POST ####
+add_action('admin_init', 'gtx_custom_imagelink_setup', 10);
 
-#### POSTS MAIS POPULARES ####
-function set_post_views( $postID ) {
+function gtx_set_post_views( $postID ) {
     $count_key = 'post_views_count';
     $count = get_post_meta( $postID, $count_key, true );
     if ( $count == '' ) {
@@ -150,19 +123,15 @@ function set_post_views( $postID ) {
     }
 }
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-#### POSTS MAIS POPULARES ####
 
-#### VERIFICA SE É SUB CATEGORIA ####
 function is_subcategory() {
     $cat = get_query_var( 'cat' );
     $category = get_category( $cat );
     $category->parent;
     return ( $category->parent == '0' ) ? false : true;
 }
-#### VERIFICA SE É SUB CATEGORIA ####
 
-#### PAGINAÇÃO ####
-function paginacao() {
+function gtx_custom_pagination() {
     global $wp_query;
     $total = $wp_query->max_num_pages;
 
@@ -186,10 +155,8 @@ function paginacao() {
         ));
     }
 }
-#### PAGINAÇÃO ####
 
-#### GALERIA ####
-function gtx_gallery_images() {
+function gtx_custom_gallery() {
     $output = $images_ids = '';
 
     if ( function_exists( 'get_post_galleries' ) ) {
@@ -220,10 +187,11 @@ function gtx_gallery_images() {
         preg_match( "/$pattern/s", get_the_content(), $match );
         $atts = shortcode_parse_atts( $match[3] );
 
-        if ( isset( $atts['ids'] ) )
+        if ( isset( $atts['ids'] ) ) {
             $attachments_ids = explode( ',', $atts['ids'] );
-        else
+        } else {
             return false;
+        }
     }
 
     echo '<div class="gallery-slider flexslider">';
@@ -248,4 +216,87 @@ function gtx_gallery_images() {
 
     return $output;
 }
-#### GALERIA ####
+
+function gtx_custom_wp_link_pages( $args = '' ) {
+    $defaults = array(
+        'before' => '<nav class="paginacao-post">',
+        'after' => '</nav>',
+        'text_before' => '',
+        'text_after' => '',
+        'next_or_number' => 'next',
+        'nextpagelink' => 'Próxima página',
+        'previouspagelink' => 'Página anterior',
+        'pagelink' => '%',
+        'echo' => 1
+    );
+
+    $r = wp_parse_args( $args, $defaults );
+    $r = apply_filters( 'wp_link_pages_args', $r );
+    extract( $r, EXTR_SKIP );
+
+    global $page, $numpages, $multipage, $more, $pagenow;
+
+    $output = '';
+    if ( $multipage ) {
+        if ( 'number' == $next_or_number ) {
+            $output .= $before;
+            for ( $i = 1; $i < ( $numpages + 1 ); $i = $i + 1 ) {
+                $j = str_replace( '%', $i, $pagelink );
+                $output .= ' ';
+                if ( $i != $page || ( ( ! $more ) && ( $page == 1 ) ) ) {
+                    $output .= _wp_link_page( $i );
+                } else {
+                    $output .= '<span class="current-post-page">';
+                }
+
+                $output .= $text_before . $j . $text_after;
+                if ( $i != $page || ( ( ! $more ) && ( $page == 1 ) ) ) {
+                    $output .= '</a>';
+                } else {
+                    $output .= '</span>';
+                }
+            }
+            $output .= $after;
+        } else {
+            if ( $more ) {
+                $output .= $before;
+                $i = $page - 1;
+                if ( $i && $more ) {
+                    $output .= _wp_link_page( $i );
+                    $output .= $text_before . $previouspagelink . $text_after . '</a>';
+                }
+                $i = $page + 1;
+                if ( $i <= $numpages && $more ) {
+                    $output .= _wp_link_page( $i );
+                    $output .= $text_before . $nextpagelink . $text_after . '</a>';
+                }
+                $output .= $after;
+            }
+        }
+    }
+
+    if ( $echo ) {
+        echo $output;
+    }
+
+    return $output;
+}
+
+function gtx_favicon_output() {
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-57x57.png" sizes="57x57">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-114x114.png" sizes="114x114">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-72x72.png" sizes="72x72">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-144x144.png" sizes="144x144">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-60x60.png" sizes="60x60">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-120x120.png" sizes="120x120">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-76x76.png" sizes="76x76">';
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/apple-touch-icon-152x152.png" sizes="152x152">';
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon-196x196.png" sizes="196x196" type="image/png">';
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon-160x160.png" sizes="160x160" type="image/png">';
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon-96x96.png" sizes="96x96" type="image/png">';
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon-16x16.png" sizes="16x16" type="image/png">';
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon-32x32.png" sizes="32x32" type="image/png">';
+    echo '<meta name="msapplication-TileColor" content="#b4d455">';
+    echo '<meta name="msapplication-TileImage" content="' . get_template_directory_uri() . '/mstile-144x144.png">';
+}
+add_action( 'wp_head', 'gtx_favicon_output' );
