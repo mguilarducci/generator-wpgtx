@@ -17,7 +17,7 @@ To install `Compass` run the command:
 $ [sudo] gem install compass
 ```
 
-_The_ `sudo` _should be used **only** if you are in a UNIX-based operating system (like Mac OS and Linux) to run as administrator._
+> _The_ `sudo` _should be used **only** if you are in a UNIX-based operating system (like Mac OS and Linux) to run as administrator._
 
 This way you will install both as `Sass` and `Compass` on your machine.
 
@@ -84,6 +84,15 @@ After this, the generator will create a directory with the name of the selected 
 ├── img/
 │   └── sprite.png
 ├── inc/
+│   ├── content-aside.php
+│   ├── content-audio.php
+│   ├── content-chat.php
+│   ├── content-gallery.php
+│   ├── content-image.php
+│   ├── content-link.php
+│   ├── content-quote.php
+│   ├── content-video.php
+│   ├── content.php
 │   ├── loop-single.php
 │   └── loop.php
 ├── js/
@@ -92,7 +101,6 @@ After this, the generator will create a directory with the name of the selected 
 │   ├── vendor/
 │   │   ├── fitvids.min.js
 │   │   ├── flexslider.min.js
-│   │   ├── jquery.min.js
 │   │   └── modernizr.min.js
 │   └── scripts.js
 ├── scss/
