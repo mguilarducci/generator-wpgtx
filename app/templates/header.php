@@ -17,7 +17,7 @@
                     </a>
                 </h1>
 
-                <nav class="col-sm-8 topo-menu-wrap">
+                <nav class="col-sm-8 topo-menu-wrap" role="navigation">
                     <?php wp_nav_menu( array( 'theme_location' => 'topo' ) ); ?>
                 </nav>
             </div>

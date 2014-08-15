@@ -24,6 +24,8 @@
     </footer>
 </article>
 
+<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
 <div class="comments-wrap">
     <?php comments_template(); ?>
 </div>
+<?php endif; ?>

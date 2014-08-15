@@ -5,7 +5,7 @@
         <div class="col-xs-12 col-sm-8">
             <?php get_template_part( 'inc/loop' ); ?>
 
-            <div class="pagination">
+            <div class="pagination" role="navigation">
                 <?php gtx_custom_pagination(); ?>
             </div>
         </div>

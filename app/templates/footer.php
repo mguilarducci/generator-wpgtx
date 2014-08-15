@@ -3,7 +3,7 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-                <nav class="col-xs-12 footer-menu-wrap">
+                <nav class="col-xs-12 footer-menu-wrap" role="navigation">
                     <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
                 </nav>
             </div>
