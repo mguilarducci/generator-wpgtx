@@ -1,11 +1,11 @@
 'use strict';
-var util = require('util');
-var path = require('path');
+var util   = require('util');
+var path   = require('path');
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
+var chalk  = require('chalk');
 
 
-var TesteGenerator = yeoman.generators.Base.extend({
+var GeneratorWPGTX = yeoman.generators.Base.extend({
   promptUser: function () {
     var done = this.async();
 
@@ -33,7 +33,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
     var index;
     var name = this.appName;
     var dir = this._.slugify(name);
-    var arquivos = [
+    var files = [
       'img/sprite.png',
       'inc/content-aside.php',
       'inc/content-audio.php',
@@ -60,6 +60,7 @@ var TesteGenerator = yeoman.generators.Base.extend({
       'author.php',
       'category.php',
       'config.rb',
+      'date.php',
       'footer.php',
       'functions.php',
       'header.php',
@@ -73,8 +74,8 @@ var TesteGenerator = yeoman.generators.Base.extend({
       'tag.php'
     ];
 
-    for (index = 0; index < arquivos.length; ++index) {
-      this.copy(arquivos[index], dir + '/' + arquivos[index]);
+    for (index = 0; index < files.length; ++index) {
+      this.copy(files[index], dir + '/' + files[index]);
     }
 
     this.copy('ftppass', dir + '/.ftppass');
@@ -91,4 +92,4 @@ var TesteGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = TesteGenerator;
+module.exports = GeneratorWPGTX;
