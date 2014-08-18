@@ -2,7 +2,6 @@
 
 > [Yeoman](http://yeoman.io) Generator
 
-
 ## Getting started
 
 Before anithing, we need to have installed [Node.js](http://nodejs.org/download/), NPM (which is installed with Node.js) and Ruby (for the [`Compass`](http://compass-style.org/)).
@@ -19,7 +18,7 @@ $ [sudo] gem install compass
 
 > _The_ `sudo` _should be used **only** if you are in a UNIX-based operating system (like Mac OS and Linux) to run as administrator._
 
-This way you will install both as `Sass` and `Compass` on your machine.
+This way you will install `Sass` and `Compass` on your machine.
 
 ***
 
@@ -115,6 +114,7 @@ After this, the generator will create a directory with the name of the selected 
 ├── author.php
 ├── category.php
 ├── config.rb
+├── date.php
 ├── footer.php
 ├── functions.php
 ├── Gruntfile.js
@@ -133,7 +133,7 @@ After this, the generator will create a directory with the name of the selected 
 
 ## Configuring Grunt
 
-The theme generated has come with `Gruntfile.js` almost fully configured, leaving only configure `FTP` information to `deploy` and install the necessary dependencies for everything to work properly.
+The theme generated comes with a `Gruntfile.js` almost fully configured, leaving only configure `FTP` information to `deploy` and install the necessary dependencies for everything to work properly.
 
 To do this, go to the theme directory and enter the following command:
 
@@ -143,33 +143,31 @@ $ [sudo] npm install
 
 Through the above command, the following dependencies are installed:
 
-#### Grunt
+### Grunt
 
 Through the `Grunt` you will manage and automate every preconfigured tasks in `Gruntfile.js`.
 
-#### Matchdep
+### Matchdep
 
 With `Matchdep` you don't need to change the `Gruntfile.js` each time you install a new dependency.
 
-#### Watch
+### Watch
 
 The `Watch` will check any changes in files and perform the specific task for each, as well as trigger the [Live Reload](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-), if you have the extension installed.
 
-#### Compass
+### Compass
 
-The `Compass` task will compile your `.scss` files, generating only an optimized `CSS` file.
+The `Compass` task will compile your `.scss` files, generating an optimized `CSS` file.
 
-#### Uglify
+### Uglify
 
 The `Uglify` will compress your `JavaScript`, creating a smaller file.
 
-#### ImageMin
+### ImageMin
 
-The `ImageMin` will optimize your images in `JPG` and `PNG`, deleting useless data the same, decreasing its final size.
+The `ImageMin` will optimize your images in `JPG` and `PNG`, deleting useless data and decreasing its final size.
 
-_This task is already preconfigured to run before each deployment along with the_ `FTPush` _task. You can cancel this changing the line 117 of the_ `Gruntfile.js`_._
-
-#### FTPush
+### FTPush
 
 The `FTPush` will `deploy` your theme, ie, send the files to the server.
 
@@ -179,15 +177,27 @@ _This task will send only the **theme files** to the server. The WordPress insta
 
 ***
 
-Now, with everything installed and configured, it's time to start `Grunt`:
+## Running Grunt tasks
+
+Now, with everything installed and configured, it's time to start Grunt:
 
 ```bash
 $ grunt
 ```
 
-This will start the `Grunt` and automatically the `watch` task will be executed to make things happen.
+This will start the Grunt and automatically the `watch` task will be executed to make things happen.
 
-Enjoy!
+To optimize your images, run the following command:
+
+```bash
+$ grunt img
+```
+
+To deploy your theme, run the command:
+
+```bash
+$ grunt deploy
+```
 
 ## License
 
