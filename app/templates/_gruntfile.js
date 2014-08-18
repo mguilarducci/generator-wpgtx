@@ -110,10 +110,8 @@ module.exports = function( grunt ) {
 
     });
 
-    // registrando tarefa default
     grunt.registerTask( "default", [ "watch" ] );
-
-    // registrando tarefa para deploy
-    grunt.registerTask( "deploy", [ "imagemin", "ftpush" ] );
+    grunt.registerTask( "img", [ "imagemin" ] );
+    grunt.registerTask( "deploy", [ "ftpush" ] );
 
 };
