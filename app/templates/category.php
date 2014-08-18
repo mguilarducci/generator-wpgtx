@@ -6,7 +6,7 @@
             <?php get_template_part( 'inc/loop' ); ?>
 
             <div class="pagination" role="navigation">
-                <?php gtx_custom_pagination(); ?>
+                <?php wpgtx_custom_pagination(); ?>
             </div>
         </div>
 
