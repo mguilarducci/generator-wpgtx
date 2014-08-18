@@ -1,6 +1,6 @@
 {
   "name": "generator-wpgtx",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "WordPress theme generator used by the brazilian agency GTX",
   "license": "MIT",
   "main": "app/index.js",
