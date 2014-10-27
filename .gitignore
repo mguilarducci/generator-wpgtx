@@ -1,3 +1,37 @@
 node_modules/
 temp/
-test/
+
+# Mac OSX
+###########
+.DS_Store*
+.DS_Store
+.Spotlight-V100
+.Trashes
+._*
+
+# Windows
+###########
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Grunt/Compass/Node.js/NPM
+###########
+.sass-cache
+node_modules
+npm-debug.log
+.grunt
+
+# General
+###########
+.dropbox
+*.ini
+*.log
+*.cache
+backup/
+cache/
+.idea/
+
+
+# rvm
+.rvmrc
