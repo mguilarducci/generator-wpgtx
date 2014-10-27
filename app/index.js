@@ -1,9 +1,6 @@
 'use strict';
-var util   = require('util');
-var path   = require('path');
-var yeoman = require('yeoman-generator');
-var chalk  = require('chalk');
 
+var yeoman = require('yeoman-generator');
 
 var GeneratorWPGTX = yeoman.generators.Base.extend({
   promptUser: function () {
@@ -82,6 +79,7 @@ var GeneratorWPGTX = yeoman.generators.Base.extend({
     this.copy('gitignore', dir + '/.gitignore');
 
     var context = {
+      /*jshint camelcase: false */
       theme_name: name
     };
 
